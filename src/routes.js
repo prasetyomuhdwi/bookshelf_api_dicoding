@@ -1,4 +1,5 @@
-// Routes server // \r\n
+const { addBookHandler } = require('./handler')
+
 const routes = [
   {
     method: 'GET',
@@ -35,9 +36,7 @@ const routes = [
   {
     method: 'POST',
     path: '/books',
-    handler: (request, h) => {
-      return 'book POST'
-    }
+    handler: addBookHandler
   },
 
   {

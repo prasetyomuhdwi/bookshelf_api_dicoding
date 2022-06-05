@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
-    "lint": "eslint ./"
+    "start": "nodemon ./src/server.js",
+    "lint": "eslint ./src"
   },
   "keywords": [
     "nodejs",
@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/prasetyomuhdwi/bookshelf_api_dicoding#readme",
   "dependencies": {
-    "@hapi/hapi": "^20.2.2"
+    "@hapi/hapi": "^20.2.2",
+    "nanoid": "^3.3.4"
   },
   "devDependencies": {
     "eslint": "^8.17.0",
