@@ -1,16 +1,13 @@
+// Routes server
 const routes = [
   {
     method: "GET",
     path: "/books",
     handler: (request, h) => {
-      return "books";
-    },
-  },
-  {
-    method: "POST",
-    path: "/books",
-    handler: (request, h) => {
-      return `book POST`;
+      return h
+        .response("success")
+        .type("text/plain")
+        .header("X-Custom", "some-value");
     },
   },
   {
@@ -19,22 +16,6 @@ const routes = [
     handler: (request, h) => {
       const { id } = request.params;
       return `book ${id}`;
-    },
-  },
-  {
-    method: "PUT",
-    path: "/books/{id}",
-    handler: (request, h) => {
-      const { id } = request.params;
-      return `book put ${id}`;
-    },
-  },
-  {
-    method: "DELETE",
-    path: "/books/{id}",
-    handler: (request, h) => {
-      const { id } = request.params;
-      return `book delete ${id}`;
     },
   },
   {
@@ -48,6 +29,41 @@ const routes = [
         return `Hai, ${name}!`;
       }
       return `Hello, ${name}!`;
+    },
+  },
+
+  {
+    method: "POST",
+    path: "/books",
+    handler: (request, h) => {
+      return `book POST`;
+    },
+  },
+
+  {
+    method: "POST",
+    path: "/login",
+    handler: (request, h) => {
+      const { username, password } = request.payload;
+      return `Welcome ${username}!`;
+    },
+  },
+
+  {
+    method: "PUT",
+    path: "/books/{id}",
+    handler: (request, h) => {
+      const { id } = request.params;
+      return `book put ${id}`;
+    },
+  },
+
+  {
+    method: "DELETE",
+    path: "/books/{id}",
+    handler: (request, h) => {
+      const { id } = request.params;
+      return `book delete ${id}`;
     },
   },
 ];
