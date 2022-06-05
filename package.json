@@ -1,0 +1,24 @@
+{
+  "name": "bookshelf_api",
+  "version": "1.0.0",
+  "description": "aplikasi restapi bookshelf by prasetyomuhdwi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "js"
+  ],
+  "author": "prasetyomuhdwi",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prasetyomuhdwi/bookshelf_api_dicoding.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prasetyomuhdwi/bookshelf_api_dicoding/issues"
+  },
+  "homepage": "https://github.com/prasetyomuhdwi/bookshelf_api_dicoding#readme"
+}
