@@ -1,71 +1,71 @@
-// Routes server
+// Routes server // \r\n
 const routes = [
   {
-    method: "GET",
-    path: "/books",
+    method: 'GET',
+    path: '/books',
     handler: (request, h) => {
       return h
-        .response("success")
-        .type("text/plain")
-        .header("X-Custom", "some-value");
-    },
+        .response('success')
+        .type('text/plain')
+        .header('X-Custom', 'some-value')
+    }
   },
   {
-    method: "GET",
-    path: "/books/{id}",
+    method: 'GET',
+    path: '/books/{id}',
     handler: (request, h) => {
-      const { id } = request.params;
-      return `book ${id}`;
-    },
+      const { id } = request.params
+      return `book ${id}`
+    }
   },
   {
-    method: "GET",
-    path: "/hello/{name?}",
+    method: 'GET',
+    path: '/hello/{name?}',
     handler: (request, h) => {
-      const { name = "stranger" } = request.params;
-      const { lang } = request.query;
+      const { name = 'stranger' } = request.params
+      const { lang } = request.query
 
-      if (lang === "id") {
-        return `Hai, ${name}!`;
+      if (lang === 'id') {
+        return `Hai, ${name}!`
       }
-      return `Hello, ${name}!`;
-    },
+      return `Hello, ${name}!`
+    }
   },
 
   {
-    method: "POST",
-    path: "/books",
+    method: 'POST',
+    path: '/books',
     handler: (request, h) => {
-      return `book POST`;
-    },
+      return 'book POST'
+    }
   },
 
   {
-    method: "POST",
-    path: "/login",
+    method: 'POST',
+    path: '/login',
     handler: (request, h) => {
-      const { username, password } = request.payload;
-      return `Welcome ${username}!`;
-    },
+      const { username, password } = request.payload
+      return `Welcome ${username} pass ${password}!`
+    }
   },
 
   {
-    method: "PUT",
-    path: "/books/{id}",
+    method: 'PUT',
+    path: '/books/{id}',
     handler: (request, h) => {
-      const { id } = request.params;
-      return `book put ${id}`;
-    },
+      const { id } = request.params
+      return `book put ${id}`
+    }
   },
 
   {
-    method: "DELETE",
-    path: "/books/{id}",
+    method: 'DELETE',
+    path: '/books/{id}',
     handler: (request, h) => {
-      const { id } = request.params;
-      return `book delete ${id}`;
-    },
-  },
-];
+      const { id } = request.params
+      return `book delete ${id}`
+    }
+  }
+]
 
-module.exports = routes;
+module.exports = routes
