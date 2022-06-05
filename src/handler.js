@@ -1,5 +1,5 @@
-const nanoid = require('nanoid')
-const books = require('./books')
+const nanoidModule = require('nanoid')
+const booksModule = require('./books')
 
 const addBookHandler = (request, h) => {
   const {
@@ -13,7 +13,7 @@ const addBookHandler = (request, h) => {
     reading
   } = request.payload
 
-  const id = nanoid(16)
+  const id = nanoidModule.nanoid(16)
   const insertedAt = new Date().toISOString()
   const updatedAt = insertedAt
   let finished = false
@@ -63,9 +63,9 @@ const addBookHandler = (request, h) => {
     updatedAt
   }
 
-  books.push(newbook)
+  booksModule.push(newbook)
 
-  const isSuccess = books.filter((book) => book.id === id).length > 0
+  const isSuccess = booksModule.filter((book) => book.id === id).length > 0
 
   if (isSuccess) {
     const response = h.response({
@@ -87,4 +87,48 @@ const addBookHandler = (request, h) => {
   }
 }
 
-module.exports = { addBookHandler }
+const getAllBooksHandler = () => ({
+  status: 'success',
+  data: { books: booksSimple() }
+})
+
+const booksSimple = () => {
+  const data = []
+  for (const x of booksModule.keys()) {
+    data[x] = {
+      id: booksModule[x].id,
+      name: booksModule[x].name,
+      publisher: booksModule[x].publisher
+    }
+  }
+  return data
+}
+
+const getBookByIdHandler = (request, h) => {
+  const { id } = request.params
+
+  const book = booksModule.filter((book) => book.id === id)[0]
+
+  if (book) {
+    return {
+      status: 'success',
+      data: {
+        book
+      }
+    }
+  }
+
+  const response = h.response({
+    status: 'fail',
+    message: 'Buku tidak ditemukan'
+  })
+  response.code(404)
+  return response
+}
+
+module.exports = {
+  addBookHandler,
+  getAllBooksHandler,
+  getBookByIdHandler,
+  booksSimple
+}

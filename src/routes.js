@@ -1,23 +1,19 @@
-const { addBookHandler } = require('./handler')
+const {
+  addBookHandler,
+  getAllBooksHandler,
+  getBookByIdHandler
+} = require('./handler')
 
 const routes = [
   {
     method: 'GET',
     path: '/books',
-    handler: (request, h) => {
-      return h
-        .response('success')
-        .type('text/plain')
-        .header('X-Custom', 'some-value')
-    }
+    handler: getAllBooksHandler
   },
   {
     method: 'GET',
     path: '/books/{id}',
-    handler: (request, h) => {
-      const { id } = request.params
-      return `book ${id}`
-    }
+    handler: getBookByIdHandler
   },
   {
     method: 'GET',
