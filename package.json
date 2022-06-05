@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/prasetyomuhdwi/bookshelf_api_dicoding/issues"
   },
-  "homepage": "https://github.com/prasetyomuhdwi/bookshelf_api_dicoding#readme"
+  "homepage": "https://github.com/prasetyomuhdwi/bookshelf_api_dicoding#readme",
+  "dependencies": {
+    "@hapi/hapi": "^20.2.2"
+  }
 }
