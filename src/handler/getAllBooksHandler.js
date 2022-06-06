@@ -13,12 +13,6 @@ const getAllBooksHandler = (request, h) => {
 const booksSimple = (name, reading, finished) => {
   let data = []
 
-  console.log(reading)
-  console.log(
-    'halo',
-    booksModule.filter((book) => Number(book.reading) === reading)
-  )
-
   if (name) {
     if (booksModule.length !== 0) {
       const pattern = new RegExp(name.replace(/"/g, ''), 'gim')
@@ -98,7 +92,7 @@ const booksSimple = (name, reading, finished) => {
         }
       }
     } else {
-      data = ['']
+      data = [null]
     }
   }
 
