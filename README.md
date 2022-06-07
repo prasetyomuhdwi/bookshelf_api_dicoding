@@ -7,7 +7,7 @@ Saya mengunakan prinsip single responsibility approach. yang artinya mengunakan 
 ```
 server.js : Memuat kode untuk membuat, mengonfigurasi, dan menjalankan server HTTP menggunakan Hapi.
 routes.js : Memuat kode konfigurasi routing server seperti menentukan path, method, dan handler yang digunakan.
-handler.js : Memuat seluruh fungsi-fungsi handler yang digunakan pada berkas routes.
+handler : Folder ini memuat seluruh modul fungsi-fungsi handler yang digunakan pada berkas routes.
 books.js : Memuat data books yang disimpan dalam bentuk array objek.
 ```
 
@@ -16,7 +16,13 @@ books.js : Memuat data books yang disimpan dalam bentuk array objek.
 bookshelf_api_dicoding
 ├── node_modules
 ├── src
-│ ├── handler.js
+│ ├── handler
+│ │ ├── addBookHandler.js
+│ │ ├── deleteBookByIdHandler.js
+│ │ ├── editBookByIdHandler.js
+│ │ ├── getAllBooksHandler.js
+│ │ ├── getBookByIdHandler.js
+│ │ └── index.js
 │ ├── books.js
 │ ├── routes.js
 │ └── server.js
